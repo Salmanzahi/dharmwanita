@@ -1228,6 +1228,22 @@ img {
     height: auto;
 }
 
+/* Smooth scrolling for mobile */
+@media (max-width: 768px) {
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .katalog-grid {
+        scroll-behavior: smooth;
+    }
+}
+
 /* Focus styles for accessibility */
 a:focus,
 button:focus {
@@ -1252,13 +1268,329 @@ button:focus {
     top: 6px;
 }
 
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+    .katalog-item {
+        transition: transform 0.2s ease;
+    }
+    
+    .katalog-item:active {
+        transform: scale(0.98);
+    }
+    
+    .filter-btn:active {
+        transform: scale(0.95);
+    }
+    
+    .tab-btn:active {
+        transform: scale(0.95);
+    }
+    
+    /* Improve touch targets */
+    .read-more {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .filter-btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .tab-btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+    .katalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .katalog-item img {
+        height: 180px;
+    }
+    
+    .katalog-content {
+        padding: 0.8rem;
+    }
+    
+    .katalog-content h3 {
+        font-size: 0.95rem;
+    }
+    
+    .katalog-content p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Enhanced Mobile Responsiveness for Katalog */
+@media (max-width: 768px) {
+    /* Header adjustments for mobile */
+    .main-title-section h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .main-title-section .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .katalog-tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .tab-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        border-radius: 20px;
+    }
+    
+    .katalog-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .tab-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .tab-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .katalog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .katalog-item {
+        margin-bottom: 1rem;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .katalog-item img {
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .book-title-overlay {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        margin-top: -5px;
+    }
+    
+    .katalog-content {
+        padding: 1.2rem;
+    }
+    
+    .katalog-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .katalog-content p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
+    }
+    
+    .katalog-content .read-more {
+        padding: 10px 20px !important;
+        font-size: 0.85rem !important;
+        border-radius: 20px !important;
+        margin-top: 0.8rem !important;
+    }
+    
+    .katalog-filters {
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        padding: 0 1rem;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .katalog-filters::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Header adjustments for small mobile */
+    .main-title-section h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .main-title-section .subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .katalog-tabs {
+        gap: 0.3rem;
+    }
+    
+    .tab-btn {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .katalog-subtitle {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .tab-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .tab-description {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    
+    .katalog-grid {
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .katalog-item {
+        border-radius: 12px;
+        margin-bottom: 0.8rem;
+    }
+    
+    .katalog-item img {
+        height: 200px;
+    }
+    
+    .book-title-overlay {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    
+    .katalog-content {
+        padding: 1rem;
+    }
+    
+    .katalog-content h3 {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .katalog-content p {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .katalog-content .read-more {
+        padding: 8px 16px !important;
+        font-size: 0.8rem !important;
+        border-radius: 15px !important;
+        margin-top: 0.6rem !important;
+    }
+    
+    .katalog-filters {
+        gap: 0.3rem;
+        margin-bottom: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+    
+    /* Special styling for inline content in physical books */
+    .katalog-item div[style*="padding: 1.5rem"] {
+        padding: 1rem !important;
+    }
+    
+    .katalog-item div[style*="padding: 1.5rem"] h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+    
+    .katalog-item div[style*="padding: 1.5rem"] p {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .katalog-item div[style*="padding: 1.5rem"] a {
+        padding: 8px 16px !important;
+        font-size: 0.8rem !important;
+        border-radius: 15px !important;
+        margin-top: 0.6rem !important;
+    }
+}
+
 /* Print styles */
 @media print {
     .nav-links,
     .footer,
-    .katalog-filters,
-    .tab-btn {
-        display: none !important;
+    .katalog-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .filter-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+        border-radius: 20px;
+    }
+    
+    @media (max-width: 768px) {
+        .katalog-filters {
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-btn {
+            padding: 0.6rem 1rem;
+            font-size: 0.8rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .katalog-filters {
+            gap: 0.3rem;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 0.8rem;
+            font-size: 0.75rem;
+        }
     }
     
     body {
