@@ -129,10 +129,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let ticking = false;
 
         function updateHeader() {
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
             } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.classList.remove('scrolled');
             }
             ticking = false;
         }
@@ -145,10 +145,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Mobile menu toggle (if needed in future)
+    // Mobile menu toggle
     function initMobileMenu() {
-        // Placeholder for mobile menu functionality
-        // Can be expanded when mobile menu is added
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                
+                // Prevent body scroll when menu is open
+                if (navLinks.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close menu when clicking on a link
+            const navLinkItems = navLinks.querySelectorAll('.nav-link');
+            navLinkItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (navLinks.classList.contains('active') && 
+                    !mobileMenuToggle.contains(e.target) && 
+                    !navLinks.contains(e.target)) {
+                    mobileMenuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                    mobileMenuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
     }
 
     // Initialize all functions

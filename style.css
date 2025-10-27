@@ -26,13 +26,19 @@ body {
 /* Header */
 header {
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 30px rgba(139, 69, 19, 0.15);
 }
 
 nav {
@@ -63,6 +69,70 @@ nav {
 
 .nav-links a:hover {
     color: #8b4513;
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem;
+    z-index: 1001;
+    position: relative;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    background: rgba(139, 69, 19, 0.1);
+}
+
+.hamburger-line {
+    width: 28px;
+    height: 3px;
+    background: linear-gradient(45deg, #8b4513, #ffd700);
+    margin: 3px 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(139, 69, 19, 0.3);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+    background: linear-gradient(45deg, #ff6b6b, #ffd700);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+    background: linear-gradient(45deg, #ff6b6b, #ffd700);
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #8b4513, #ffd700);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
 }
 
 /* Main Content */
@@ -251,6 +321,66 @@ main {
 .treasures-content strong {
     color: #8b4513;
     font-weight: 600;
+}
+
+/* Quick Links Section */
+.quick-links {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.quick-links h3 {
+    color: #ececec;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.quick-link-card {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border: 2px solid rgba(139, 69, 19, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.quick-link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(139, 69, 19, 0.2);
+    border-color: #8b4513;
+}
+
+.quick-link-card i {
+    font-size: 3rem;
+    color: #8b4513;
+    margin-bottom: 1rem;
+}
+
+.quick-link-card h4 {
+    color: #8b4513;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.quick-link-card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 /* Profil Section */
@@ -475,6 +605,13 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     cursor: default;
+    display: flex;
+    flex-direction: column;
+}
+
+.katalog-item .read-more {
+    margin-top: auto;
+    margin-bottom: 1rem;
 }
 
 .katalog-item:hover {
@@ -534,6 +671,16 @@ main {
 
 .katalog-content {
     padding: 1.5rem;
+    background: white;
+    border-radius: 0 0 15px 15px;
+    position: relative;
+    z-index: 5;
+}
+
+.katalog-content .read-more {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .book-content {
@@ -578,24 +725,28 @@ main {
 }
 
 .read-more {
-    display: inline-block;
-    padding: 8px 20px;
-    background: #8b4513;
+    display: inline-block !important;
+    padding: 10px 24px;
+    background: linear-gradient(45deg, #8b4513, #ffd700);
     color: white;
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: 25px;
     font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
     position: relative;
     z-index: 10;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    font-size: 0.95rem;
 }
 
 .read-more:hover {
-    background: #a0522d;
-    transform: translateY(-2px);
+    background: linear-gradient(45deg, #a0522d, #ffed4e);
+    transform: translateY(-3px);
     text-decoration: none;
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
     color: white;
 }
 
@@ -760,8 +911,114 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
     .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.98) 100%);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(139, 69, 19, 0.15);
+        padding-top: 80px;
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 0;
+        border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 1.2rem 2rem;
+        width: 100%;
+        text-align: left;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        position: relative;
+        color: #333;
+        font-weight: 500;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        background: linear-gradient(135deg, rgba(139, 69, 19, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+        color: #8b4513;
+        transform: translateX(5px);
+    }
+    
+    .nav-link::after {
         display: none;
+    }
+    
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(45deg, #8b4513, #ffd700);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        transform: scaleY(1);
+    }
+    
+    /* Mobile menu overlay */
+    .nav-links::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: -1;
+    }
+    
+    .nav-links.active::before {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Mobile menu header */
+    .nav-links::after {
+        content: 'Menu';
+        position: absolute;
+        top: 20px;
+        left: 2rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #8b4513;
+        z-index: 1000;
     }
 
     .main-title-section h1 {
@@ -848,11 +1105,51 @@ footer {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+    
+    .quick-links-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .quick-link-card {
+        padding: 1.5rem;
+    }
+    
+    .quick-link-card i {
+        font-size: 2.5rem;
+    }
 }
 
 @media (max-width: 480px) {
     .container {
         padding: 0 1rem;
+    }
+    
+    /* Mobile navbar improvements */
+    .nav-links {
+        width: 90%;
+        max-width: 280px;
+        padding-top: 70px;
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .nav-links::after {
+        font-size: 1.1rem;
+        left: 1.5rem;
+        top: 15px;
+    }
+    
+    .mobile-menu-toggle {
+        padding: 0.6rem;
+    }
+    
+    .hamburger-line {
+        width: 24px;
+        height: 2.5px;
     }
     
     .main-title-section h1 {
@@ -972,4 +1269,49 @@ button:focus {
     .section {
         page-break-inside: avoid;
     }
+}
+
+/* Fix for read-more button visibility */
+.katalog-item .katalog-content .read-more {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: linear-gradient(45deg, #8b4513, #ffd700) !important;
+    color: white !important;
+    padding: 12px 28px !important;
+    border-radius: 25px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    margin-top: 1rem !important;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3) !important;
+    position: relative !important;
+    z-index: 100 !important;
+    font-size: 0.95rem !important;
+    transition: all 0.3s ease !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+.katalog-item .katalog-content .read-more:hover {
+    background: linear-gradient(45deg, #a0522d, #ffed4e) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4) !important;
+    color: white !important;
+}
+
+/* Debug CSS - Force visibility for PDF link */
+.katalog-item a[href="buku_fisik1.pdf"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: #8b4513 !important;
+    color: white !important;
+    padding: 15px 30px !important;
+    border-radius: 25px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    margin-top: 1rem !important;
+    position: relative !important;
+    z-index: 999 !important;
 }
