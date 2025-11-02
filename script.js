@@ -196,14 +196,74 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+        // Audio control (custom UI for navbar)
+        function initAudioControl() {
+            const audio = document.getElementById('bg-audio');
+            const toggle = document.getElementById('audio-toggle');
+            const controlWrap = document.getElementById('audio-control');
+            const volume = document.getElementById('audio-volume');
+
+            if (!audio || !toggle || !controlWrap || !volume) return;
+
+            // Restore saved volume
+            const saved = localStorage.getItem('pjc_audio_vol');
+            audio.volume = saved !== null ? parseFloat(saved) : 0.25;
+            volume.value = audio.volume;
+
+            function setPlayingState(isPlaying) {
+                toggle.setAttribute('aria-pressed', String(isPlaying));
+                controlWrap.classList.toggle('playing', isPlaying);
+                const icon = toggle.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-play', !isPlaying);
+                    icon.classList.toggle('fa-pause', isPlaying);
+                }
+            }
+
+            // Toggle play/pause
+            toggle.addEventListener('click', () => {
+                if (audio.paused) {
+                    // start playback on user gesture
+                    audio.play().catch(() => {});
+                    setPlayingState(true);
+                } else {
+                    audio.pause();
+                    setPlayingState(false);
+                }
+            });
+
+            // Update state when audio ends/pauses/plays
+            audio.addEventListener('play', () => setPlayingState(true));
+            audio.addEventListener('pause', () => setPlayingState(false));
+
+            // Volume control
+            volume.addEventListener('input', (e) => {
+                const val = parseFloat(e.target.value);
+                audio.volume = val;
+                localStorage.setItem('pjc_audio_vol', String(val));
+            });
+
+            // Keyboard support
+            toggle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggle.click();
+                }
+            });
+
+            // Update UI based on initial paused state
+            setPlayingState(!audio.paused);
+        }
+
     // Initialize all functions
     try {
         initSmoothScrolling();
         initKatalogFilters();
         initKatalogTabs();
         initScrollAnimations();
-        initHeaderScroll();
-        initMobileMenu();
+    initHeaderScroll();
+    initMobileMenu();
+    initAudioControl();
     } catch (error) {
         console.warn('Some features may not be available:', error);
     }

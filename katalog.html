@@ -18,6 +18,23 @@
             <a href="index.html" class="logo">
                 <i class="fas fa-book-reader"></i> CAKRAJANI
             </a>
+
+            <!-- Custom audio control (replaces default audio controls for nicer UI) -->
+            <div class="audio-control" id="audio-control">
+                <button id="audio-toggle" class="audio-btn" aria-pressed="false" title="Play background audio">
+                    <i class="fas fa-play" aria-hidden="true"></i>
+                    <span class="sr-only">Play background audio</span>
+                </button>
+
+                <div class="audio-visual" aria-hidden="true">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+                <input id="audio-volume" class="audio-volume" type="range" min="0" max="1" step="0.01" aria-label="Volume" />
+                <audio id="bg-audio" src="bangsat.mp3" loop preload="none"></audio>
+            </div>
             
             <!-- Mobile menu button -->
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -168,7 +185,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="kesehatan">
-                            <img src="" alt="Seberapa Perlu Diet: seberapa berat proses yang harus dijalani">
+                            <img src="35.png" alt="Seberapa Perlu Diet: seberapa berat proses yang harus dijalani">
                             <div class="book-title-overlay">Seberapa Perlu Diet: seberapa berat proses yang harus dijalani</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Seberapa Perlu Diet: seberapa berat proses yang harus dijalani</h3>
@@ -183,7 +200,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="kesehatan">
-                            <img src="35.png" alt="Secantik yang Engkau Impikan: 365 tips menjadi remaja cantik lahir batin">
+                            <img src="34.png" alt="Secantik yang Engkau Impikan: 365 tips menjadi remaja cantik lahir batin">
                             <div class="book-title-overlay">Secantik yang Engkau Impikan: 365 tips menjadi remaja cantik lahir batin</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Secantik yang Engkau Impikan: 365 tips menjadi remaja cantik lahir batin</h3>
@@ -198,7 +215,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="pengetahuan">
-                            <img src="34.png" alt="Dunia Tanpa Sekolah">
+                            <img src="bapuk.jpg" alt="Dunia Tanpa Sekolah">
                             <div class="book-title-overlay">Dunia Tanpa Sekolah</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Dunia Tanpa Sekolah</h3>
@@ -214,7 +231,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="pengetahuan">
-                            <img src="33.png" alt="Menemani Bukan Memarahi: mendampingi anak menjadi dirinya sendiri">
+                            <img src="ppp.png" alt="Menemani Bukan Memarahi: mendampingi anak menjadi dirinya sendiri">
                             <div class="book-title-overlay">Menemani Bukan Memarahi: mendampingi anak menjadi dirinya sendiri</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Menemani Bukan Memarahi: mendampingi anak menjadi dirinya sendiri</h3>
@@ -230,7 +247,8 @@
                         </div>
                         
                         <div class="katalog-item" data-category="pengetahuan">
-                            <img src="32.png" alt="Seni Menjadi Orang Tua Hebat: 75 cara sederhana untuk membesarkan anak-anak yang bertumbuh">
+                            <img src="anjai.jpg" alt="Seni Menjadi Orang Tua Hebat: 75 cara sederhana untuk membesarkan anak-anak yang bertumbuh">
+                            <!-- bapuk capek wok -->
                             <div class="book-title-overlay">Seni Menjadi Orang Tua Hebat: 75 cara sederhana untuk membesarkan anak-anak yang bertumbuh</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Seni Menjadi Orang Tua Hebat: 75 cara sederhana untuk membesarkan anak-anak yang bertumbuh</h3>
@@ -245,7 +263,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="pengetahuan">
-                            <img src="31.png" alt="Hidup Apa Adanya">
+                            <img src="30.png" alt="Hidup Apa Adanya">
                             <div class="book-title-overlay">Hidup Apa Adanya</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Hidup Apa Adanya</h3>
@@ -261,7 +279,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="pengetahuan">
-                            <img src="30.png" alt="Soft Skills Untuk Pendidik">
+                            <img src="29.png" alt="Soft Skills Untuk Pendidik">
                             <div class="book-title-overlay">Soft Skills Untuk Pendidik</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Soft Skills Untuk Pendidik</h3>
@@ -277,7 +295,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="29.png" alt="Mempelai Sunyi">
+                            <img src="28.png" alt="Mempelai Sunyi">
                             <div class="book-title-overlay">Mempelai Sunyi</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Mempelai Sunyi</h3>
@@ -293,7 +311,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="28.png" alt="Mempelai Sunyi">
+                            <img src="27.png" alt="Mempelai Sunyi">
                             <div class="book-title-overlay">Mempelai Sunyi</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Mempelai Sunyi</h3>
@@ -308,7 +326,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="27.png" alt="Rapuh Boleh, Menyerah Jangan">
+                            <img src="26.png" alt="Rapuh Boleh, Menyerah Jangan">
                             <div class="book-title-overlay">Rapuh Boleh, Menyerah Jangan</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Rapuh Boleh, Menyerah Jangan</h3>
@@ -323,7 +341,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="26.png" alt="Rara Beruk">
+                            <img src="25.png" alt="Rara Beruk">
                             <div class="book-title-overlay">Rara Beruk</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Rara Beruk</h3>
@@ -338,7 +356,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="25.png" alt="Robohnya Surau Kami : kumpulan cerpen">
+                            <img src="24.png" alt="Robohnya Surau Kami : kumpulan cerpen">
                             <div class="book-title-overlay">Robohnya Surau Kami : kumpulan cerpen</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Robohnya Surau Kami : kumpulan cerpen</h3>
@@ -353,7 +371,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="24.png" alt="Malam Terakhir: kumpulan cerpen">
+                            <img src="23.png" alt="Malam Terakhir: kumpulan cerpen">
                             <div class="book-title-overlay">Malam Terakhir: kumpulan cerpen</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Malam Terakhir: kumpulan cerpen</h3>
@@ -368,7 +386,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="23.png" alt="Ayat-Ayat Cinta">
+                            <img src="22.png" alt="Ayat-Ayat Cinta">
                             <div class="book-title-overlay">Ayat-Ayat Cinta</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Ayat-Ayat Cinta</h3>
@@ -383,7 +401,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="22.png" alt="Tiada Tempat di Surga Untuknya">
+                            <img src="21.png" alt="Tiada Tempat di Surga Untuknya">
                             <div class="book-title-overlay">Tiada Tempat di Surga Untuknya</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Tiada Tempat di Surga Untuknya</h3>
@@ -398,7 +416,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="21.png" alt="Layang-Layang Sore">
+                            <img src="20.png" alt="Layang-Layang Sore">
                             <div class="book-title-overlay">Layang-Layang Sore</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Layang-Layang Sore</h3>
@@ -412,7 +430,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="20.png" alt="Saksi Bisu Putih Abu-Abu">
+                            <img src="19.png" alt="Saksi Bisu Putih Abu-Abu">
                             <div class="book-title-overlay">Saksi Bisu Putih Abu-Abu</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Saksi Bisu Putih Abu-Abu</h3>
@@ -426,7 +444,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="19.png" alt="Maafkan Aku">
+                            <img src="18.png" alt="Maafkan Aku">
                             <div class="book-title-overlay">Maafkan Aku</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Maafkan Aku</h3>
@@ -440,7 +458,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="18.png" alt="Belajar Dari Mangga">
+                            <img src="17.png" alt="Belajar Dari Mangga">
                             <div class="book-title-overlay">Belajar Dari Mangga</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Belajar Dari Mangga</h3>
